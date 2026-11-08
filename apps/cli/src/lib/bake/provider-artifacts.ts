@@ -27,6 +27,7 @@ import { bakeE2bTemplate } from "./e2b.ts";
 import { bakeFreestyleSnapshot } from "./freestyle.ts";
 import { promoteImage } from "./image.ts";
 import { bakeNovitaTemplate } from "./novita.ts";
+import { bakeSuperserveTemplate } from "./superserve.ts";
 import type { Log } from "./types.ts";
 
 export type BakeProviderArtifact = (
@@ -46,6 +47,7 @@ export const BAKED_ARTIFACT_BUILDERS = {
 	blaxel: bakeBlaxelImage,
 	novita: bakeNovitaTemplate,
 	freestyle: bakeFreestyleSnapshot,
+	superserve: bakeSuperserveTemplate,
 } as const satisfies Record<BakedProviderId, BakeProviderArtifact>;
 
 export function buildBakedProviderArtifact(

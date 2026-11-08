@@ -78,6 +78,7 @@ describe("@sandbox-benchmarks/schema providers", () => {
 			"namespace",
 			"novita",
 			"runcloud",
+			"superserve",
 			"tama",
 			"vercel",
 		]);
@@ -250,6 +251,7 @@ describe("@sandbox-benchmarks/schema providers", () => {
 			"daytona-container": 0.3312,
 			novita: 0.23328,
 			boat: 0.036,
+			superserve: 0.3312,
 		};
 		for (const [id, cost] of Object.entries(expected)) {
 			expect(hourlyCostAtTargetSpec(getProvider(id) as ProviderMeta)).toBeCloseTo(cost, 12);

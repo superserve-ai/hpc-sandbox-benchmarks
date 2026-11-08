@@ -17,6 +17,8 @@ export interface CandidateRefs {
 	novitaTemplateCandidate: string;
 	/** Candidate sandbox image in the Blaxel workspace registry. */
 	blaxelImageCandidate: string;
+	/** Candidate Superserve template. */
+	superserveTemplateCandidate: string;
 	toolchainImageCandidate: string;
 	/** Candidate image mirrored into the linked project's Vercel Container Registry. */
 	vercelImageCandidate: string;
@@ -88,6 +90,11 @@ function candidateLaunch(id: ProviderId, refs: CandidateRefs): CandidateLaunch {
 			return {
 				artifact: { kind: "baked", ref: refs.novitaTemplateCandidate },
 				createOptions: { snapshotId: refs.novitaTemplateCandidate },
+			};
+		case "superserve":
+			return {
+				artifact: { kind: "baked", ref: refs.superserveTemplateCandidate },
+				createOptions: { snapshotId: refs.superserveTemplateCandidate },
 			};
 		case "namespace":
 		// No template/snapshot system — points create() at the candidate image directly, same as modal.

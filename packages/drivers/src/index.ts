@@ -23,6 +23,7 @@ export interface DriverModuleMap {
 	freestyle: typeof import("@sandbox-benchmarks/freestyle").default;
 	brezel: typeof import("@sandbox-benchmarks/brezel").default;
 	digitalocean: typeof import("@sandbox-benchmarks/digitalocean").default;
+	superserve: typeof import("@sandbox-benchmarks/superserve").default;
 }
 
 type Assert<Condition extends true> = Condition;
@@ -58,6 +59,7 @@ export const DRIVERS: {
 	freestyle: () => import("@sandbox-benchmarks/freestyle").then((module) => module.default),
 	brezel: () => import("@sandbox-benchmarks/brezel").then((module) => module.default),
 	digitalocean: () => import("@sandbox-benchmarks/digitalocean").then((module) => module.default),
+	superserve: () => import("@sandbox-benchmarks/superserve").then((module) => module.default),
 });
 
 export const loadDriverModule = <P extends DriverProviderId>(id: P): Promise<DriverModuleMap[P]> =>
@@ -71,6 +73,7 @@ export interface ArtifactBuilderMap {
 	blaxel: typeof import("@sandbox-benchmarks/blaxel/artifact").default;
 	novita: typeof import("@sandbox-benchmarks/novita/artifact").default;
 	freestyle: SnapshotArtifactBuilder<"freestyle">;
+	superserve: typeof import("@sandbox-benchmarks/superserve/artifact").default;
 }
 
 type BakedProviderId = {
@@ -103,6 +106,8 @@ export const ARTIFACT_BUILDERS: {
 		import("@sandbox-benchmarks/freestyle").then((module) =>
 			snapshotArtifactBuilder(module.default, module.snapshotBuild),
 		),
+	superserve: () =>
+		import("@sandbox-benchmarks/superserve/artifact").then((module) => module.default),
 });
 
 export const loadArtifactBuilder = <P extends ArtifactBuilderProviderId>(
