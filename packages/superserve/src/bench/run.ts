@@ -132,17 +132,22 @@ async function probeGuest(apiKey: string, runId: string): Promise<Record<string,
 	}
 }
 
-/** Kill marked sandboxes created since the run started (less a clock-skew margin) that are alive. */
-async function sweep(apiKey: string, startedAt: Date): Promise<string[]> {
-	const since = new Date(startedAt.getTime() - 60_000);
+async function liveMarked(apiKey: string) {
 	const { Sandbox } = await import("@superserve/sdk");
 	const live = await Sandbox.list({
 		apiKey,
 		status: ["starting", "active", "pausing", "paused", "resuming", "migrating"],
 	});
-	const leftovers = live.filter(
-		(row) => SUPERSERVE_MARKER_KEY in row.metadata && row.createdAt >= since,
-	);
+	return live.filter((row) => SUPERSERVE_MARKER_KEY in row.metadata);
+}
+
+// Driver markers are per-attempt UUIDs, not per run, so a run owns every marked sandbox created
+// after it started. The preflight refuses to start while another run has marked sandboxes alive.
+/** Kill marked sandboxes created since the run started (less a clock-skew margin) that are alive. */
+async function sweep(apiKey: string, startedAt: Date): Promise<string[]> {
+	const since = new Date(startedAt.getTime() - 60_000);
+	const { Sandbox } = await import("@superserve/sdk");
+	const leftovers = (await liveMarked(apiKey)).filter((row) => row.createdAt >= since);
 	for (const row of leftovers) await Sandbox.killById(row.id, { apiKey });
 	return leftovers.map((row) => row.id);
 }
@@ -287,9 +292,14 @@ if (import.meta.main) {
 	console.log(
 		`run ${runId}: mode ${plan.mode}, load ${plan.load}${plan.area ? `, area ${plan.area}` : ""}, peak ${peakSandboxes(plan)} sandboxes\n${describe(plan)}\nsource ${source.repoUrl} @ ${source.sha} (${source.branch})`,
 	);
-	for (const problem of problems) console.error(`preflight: ${problem}`);
 	const apiKey = process.env.SUPERSERVE_API_KEY;
 	if (!apiKey) problems.push("SUPERSERVE_API_KEY is not set");
+	else {
+		const busy = await liveMarked(apiKey);
+		if (busy.length > 0)
+			problems.push(`${busy.length} benchmark sandboxes are alive; another run may be active`);
+	}
+	for (const problem of problems) console.error(`preflight: ${problem}`);
 	if (values["dry-run"]) {
 		if (apiKey) console.log(`template ${JSON.stringify(await readTemplate(apiKey))}`);
 		process.exit(0);
