@@ -59,6 +59,7 @@
     "test": "bun --filter '!@sandbox-benchmarks/figures' --if-present test",
     "test:figures": "bun --filter @sandbox-benchmarks/figures test",
     "smoke": "bun --filter @sandbox-benchmarks/cli smoke",
+    "bench:superserve": "bun packages/superserve/src/bench/run.ts",
     "format": "biome format . --write",
     "lint": "biome check . --error-on-warnings",
     "lint:workflows": "bun tooling/repo-checks/src/lint-workflows.ts",
