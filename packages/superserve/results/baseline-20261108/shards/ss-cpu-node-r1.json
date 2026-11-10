@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "6",
+  "runId": "ss-cpu-node",
+  "sha": "local",
+  "generatedAt": "2026-11-08T01:31:39.141Z",
+  "replicateIndex": 1,
+  "targetSpec": {
+    "vcpus": 4,
+    "memoryGb": 8,
+    "diskGb": 40
+  },
+  "providers": [
+    {
+      "providerId": "superserve",
+      "costEvidence": [],
+      "artifactEvidence": [
+        {
+          "cell": {
+            "runId": "ss-cpu-node",
+            "providerId": "superserve",
+            "suite": "cpu-node",
+            "replicateIndex": 1
+          },
+          "sandboxId": "c9cad734-0ff9-44b2-bbd2-1964b8757bd7",
+          "provenance": {
+            "source": "guest-fingerprint",
+            "requested": {
+              "kind": "baked",
+              "ref": "sandbox-benchmarks-toolchain-v8"
+            },
+            "fingerprint": {
+              "authority": "toolchain-manifest-v1",
+              "imageName": "sandbox-benchmarks-toolchain",
+              "imageVersion": "v8"
+            }
+          }
+        }
+      ],
+      "validationStatus": "validated",
+      "specMatched": true,
+      "observedSpecs": {
+        "cpuModel": "Intel(R) Xeon(R) Processor",
+        "hostVcpus": 4,
+        "hostMemoryGb": 8,
+        "os": "Debian GNU/Linux 13 (trixie)",
+        "kernel": "6.1.158",
+        "virtualization": "kvm",
+        "user": "root",
+        "vcpus": 4,
+        "memoryGb": 7.78,
+        "diskGb": 39.1,
+        "detectedIsolation": "firecracker",
+        "isolationClass": "microvm",
+        "isolationConfidence": "confirmed",
+        "machineVmm": "firecracker",
+        "containerRuntime": "none"
+      },
+      "hostMetadata": [
+        {
+          "source": "phoronix/result-file-to-json",
+          "sourceFile": "cpu-node/pts_node-web-tooling--metadata.json",
+          "fields": [
+            {
+              "path": "ci.client_version",
+              "value": "10.8.4"
+            },
+            {
+              "path": "ci.data.cpu-microcode",
+              "value": "0x1"
+            },
+            {
+              "path": "ci.data.kernel-extra-details",
+              "value": "Transparent Huge Pages: madvise"
+            },
+            {
+              "path": "ci.data.security",
+              "value": "gather_data_sampling: Not affected + indirect_target_selection: Not affected + itlb_multihit: Not affected + l1tf: Not affected + mds: Not affected + meltdown: Not affected + mmio_stale_data: Not affected + reg_file_data_sampling: Not affected + retbleed: Not affected + spec_rstack_overflow: Not affected + spec_store_bypass: Mitigation of SSB disabled via prctl + spectre_v1: Mitigation of usercopy/swapgs barriers and __user pointer sanitization + spectre_v2: Mitigation of Enhanced / Automatic IBRS; IBPB: conditional; PBRSB-eIBRS: SW sequence; BHI: BHI_DIS_S + srbds: Not affected + tsa: Not affected + tsx_async_abort: Mitigation of TSX disabled + vmscape: Not affected"
+            },
+            {
+              "path": "ci.hardware.Disk",
+              "value": "40GB"
+            },
+            {
+              "path": "ci.hardware.Memory",
+              "value": "8GB"
+            },
+            {
+              "path": "ci.hardware.Processor",
+              "value": "Intel Xeon (4 Cores)"
+            },
+            {
+              "path": "ci.identifier",
+              "value": "ci"
+            },
+            {
+              "path": "ci.software.Compiler",
+              "value": "GCC 14.2.0"
+            },
+            {
+              "path": "ci.software.File-System",
+              "value": "ext4"
+            },
+            {
+              "path": "ci.software.Kernel",
+              "value": "6.1.158 (x86_64)"
+            },
+            {
+              "path": "ci.software.OS",
+              "value": "Debian GNU/Linux 13"
+            },
+            {
+              "path": "ci.software.System Layer",
+              "value": "KVM"
+            },
+            {
+              "path": "ci.timestamp",
+              "value": "2026-11-08 01:14:21"
+            },
+            {
+              "path": "ci.user",
+              "value": "root"
+            }
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "metricId": "node_web_tooling_runs_per_s",
+          "samples": [
+            16.36, 14.97, 12.23, 12.86, 13.18, 12.47, 11.88, 14.28, 14.1, 13.9, 15.21, 15.11, 15.49,
+            16.13, 13.07
+          ],
+          "aggregates": {
+            "p50": 14.1,
+            "p95": 16.198999999999998,
+            "mean": 14.082666666666665,
+            "stdev": 1.4333949045468786,
+            "min": 11.88,
+            "max": 16.36,
+            "n": 15
+          },
+          "sourceFile": "cpu-node/pts_node-web-tooling.xml",
+          "ptsSampleSource": "raw-string"
+        },
+        {
+          "metricId": "usd_per_hour",
+          "samples": [0.3312],
+          "aggregates": {
+            "p50": 0.3312,
+            "p95": 0.3312,
+            "mean": 0.3312,
+            "stdev": 0,
+            "min": 0.3312,
+            "max": 0.3312,
+            "n": 1
+          },
+          "derived": true
+        }
+      ],
+      "suitesCovered": ["cpu-node"],
+      "gaps": [],
+      "uncatalogued": []
+    }
+  ]
+}

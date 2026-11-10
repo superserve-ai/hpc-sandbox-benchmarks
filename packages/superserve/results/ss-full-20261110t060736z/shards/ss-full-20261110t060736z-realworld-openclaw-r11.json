@@ -1,0 +1,249 @@
+{
+  "schemaVersion": "6",
+  "runId": "ss-full-20261110t060736z-realworld-openclaw",
+  "sha": "72c47fb8652a7cd6277c887047095b3c67c8d0b3",
+  "generatedAt": "2026-11-10T07:14:38.709Z",
+  "replicateIndex": 11,
+  "targetSpec": {
+    "vcpus": 4,
+    "memoryGb": 8,
+    "diskGb": 40
+  },
+  "providers": [
+    {
+      "providerId": "superserve",
+      "costEvidence": [],
+      "artifactEvidence": [
+        {
+          "cell": {
+            "runId": "ss-full-20261110t060736z-realworld-openclaw",
+            "providerId": "superserve",
+            "suite": "realworld-openclaw",
+            "replicateIndex": 11
+          },
+          "sandboxId": "23ed09fd-e1e9-4209-ae2b-df3511589d41",
+          "provenance": {
+            "source": "guest-fingerprint",
+            "requested": {
+              "kind": "baked",
+              "ref": "sandbox-benchmarks-toolchain-v8"
+            },
+            "fingerprint": {
+              "authority": "toolchain-manifest-v1",
+              "imageName": "sandbox-benchmarks-toolchain",
+              "imageVersion": "v8"
+            }
+          }
+        }
+      ],
+      "validationStatus": "validated",
+      "specMatched": true,
+      "observedSpecs": {
+        "cpuModel": "Intel(R) Xeon(R) Processor",
+        "hostVcpus": 4,
+        "hostMemoryGb": 8,
+        "os": "Debian GNU/Linux 13 (trixie)",
+        "kernel": "6.1.158",
+        "virtualization": "kvm",
+        "user": "root",
+        "vcpus": 4,
+        "memoryGb": 7.78,
+        "diskGb": 39.1,
+        "detectedIsolation": "firecracker",
+        "isolationClass": "microvm",
+        "isolationConfidence": "confirmed",
+        "machineVmm": "firecracker",
+        "containerRuntime": "none"
+      },
+      "hostMetadata": [
+        {
+          "source": "phoronix/result-file-to-json",
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw--metadata.json",
+          "fields": [
+            {
+              "path": "ci.client_version",
+              "value": "10.8.4"
+            },
+            {
+              "path": "ci.data.cpu-microcode",
+              "value": "0x1"
+            },
+            {
+              "path": "ci.data.kernel-extra-details",
+              "value": "Transparent Huge Pages: madvise"
+            },
+            {
+              "path": "ci.data.security",
+              "value": "gather_data_sampling: Not affected + indirect_target_selection: Not affected + itlb_multihit: Not affected + l1tf: Not affected + mds: Not affected + meltdown: Not affected + mmio_stale_data: Not affected + reg_file_data_sampling: Not affected + retbleed: Not affected + spec_rstack_overflow: Not affected + spec_store_bypass: Mitigation of SSB disabled via prctl + spectre_v1: Mitigation of usercopy/swapgs barriers and __user pointer sanitization + spectre_v2: Mitigation of Enhanced / Automatic IBRS; IBPB: conditional; PBRSB-eIBRS: SW sequence; BHI: BHI_DIS_S + srbds: Not affected + tsa: Not affected + tsx_async_abort: Mitigation of TSX disabled + vmscape: Not affected"
+            },
+            {
+              "path": "ci.hardware.Disk",
+              "value": "40GB"
+            },
+            {
+              "path": "ci.hardware.Memory",
+              "value": "8GB"
+            },
+            {
+              "path": "ci.hardware.Processor",
+              "value": "Intel Xeon (4 Cores)"
+            },
+            {
+              "path": "ci.identifier",
+              "value": "ci"
+            },
+            {
+              "path": "ci.software.Compiler",
+              "value": "GCC 14.2.0"
+            },
+            {
+              "path": "ci.software.File-System",
+              "value": "ext4"
+            },
+            {
+              "path": "ci.software.Kernel",
+              "value": "6.1.158 (x86_64)"
+            },
+            {
+              "path": "ci.software.OS",
+              "value": "Debian GNU/Linux 13"
+            },
+            {
+              "path": "ci.software.System Layer",
+              "value": "KVM"
+            },
+            {
+              "path": "ci.timestamp",
+              "value": "2026-11-10 06:41:34"
+            },
+            {
+              "path": "ci.user",
+              "value": "root"
+            }
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "metricId": "realworld_openclaw_task_cold_install",
+          "samples": [120.298],
+          "aggregates": {
+            "p50": 120.298,
+            "p95": 120.298,
+            "mean": 120.298,
+            "stdev": 0,
+            "min": 120.298,
+            "max": 120.298,
+            "n": 1
+          },
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw.xml",
+          "ptsSampleSource": "aggregate-value",
+          "appVersion": "623534400684eca7c451cf587189fae714f2abe2",
+          "arguments": "cold_install"
+        },
+        {
+          "metricId": "realworld_openclaw_task_git_clone",
+          "samples": [6.556],
+          "aggregates": {
+            "p50": 6.556,
+            "p95": 6.556,
+            "mean": 6.556,
+            "stdev": 0,
+            "min": 6.556,
+            "max": 6.556,
+            "n": 1
+          },
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw.xml",
+          "ptsSampleSource": "aggregate-value",
+          "appVersion": "623534400684eca7c451cf587189fae714f2abe2",
+          "arguments": "git_clone"
+        },
+        {
+          "metricId": "realworld_openclaw_task_lint_extensions_all",
+          "samples": [230.043],
+          "aggregates": {
+            "p50": 230.043,
+            "p95": 230.043,
+            "mean": 230.043,
+            "stdev": 0,
+            "min": 230.043,
+            "max": 230.043,
+            "n": 1
+          },
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw.xml",
+          "ptsSampleSource": "aggregate-value",
+          "appVersion": "623534400684eca7c451cf587189fae714f2abe2",
+          "arguments": "lint_extensions_all"
+        },
+        {
+          "metricId": "realworld_openclaw_task_lint_oxlint",
+          "samples": [436.308],
+          "aggregates": {
+            "p50": 436.308,
+            "p95": 436.308,
+            "mean": 436.308,
+            "stdev": 0,
+            "min": 436.308,
+            "max": 436.308,
+            "n": 1
+          },
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw.xml",
+          "ptsSampleSource": "aggregate-value",
+          "appVersion": "623534400684eca7c451cf587189fae714f2abe2",
+          "arguments": "lint_oxlint"
+        },
+        {
+          "metricId": "realworld_openclaw_task_test_types",
+          "samples": [157.377],
+          "aggregates": {
+            "p50": 157.377,
+            "p95": 157.377,
+            "mean": 157.377,
+            "stdev": 0,
+            "min": 157.377,
+            "max": 157.377,
+            "n": 1
+          },
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw.xml",
+          "ptsSampleSource": "aggregate-value",
+          "appVersion": "623534400684eca7c451cf587189fae714f2abe2",
+          "arguments": "test_types"
+        },
+        {
+          "metricId": "realworld_openclaw_task_typecheck",
+          "samples": [27.872],
+          "aggregates": {
+            "p50": 27.872,
+            "p95": 27.872,
+            "mean": 27.872,
+            "stdev": 0,
+            "min": 27.872,
+            "max": 27.872,
+            "n": 1
+          },
+          "sourceFile": "realworld-openclaw/pts_realworld-openclaw.xml",
+          "ptsSampleSource": "aggregate-value",
+          "appVersion": "623534400684eca7c451cf587189fae714f2abe2",
+          "arguments": "typecheck"
+        },
+        {
+          "metricId": "usd_per_hour",
+          "samples": [0.3312],
+          "aggregates": {
+            "p50": 0.3312,
+            "p95": 0.3312,
+            "mean": 0.3312,
+            "stdev": 0,
+            "min": 0.3312,
+            "max": 0.3312,
+            "n": 1
+          },
+          "derived": true
+        }
+      ],
+      "suitesCovered": ["realworld-openclaw"],
+      "gaps": [],
+      "uncatalogued": []
+    }
+  ]
+}
